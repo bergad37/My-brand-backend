@@ -1,5 +1,5 @@
 import Blog from "../model/blog.js";
-import blogs from "../model/blogs.js"
+//import blogs from "../model/blogs.js"
 class blogController{
 
 
@@ -7,10 +7,10 @@ class blogController{
     static async getBlogs(req,res){
  try {
 
-    const a=await Blog.find();
+    const article=await Blog.find();
   return  res.status(200).json({
     message:"The list of blogs",
-        data: a
+        data: article
     })
  } catch (error) {
     console.log(error)
