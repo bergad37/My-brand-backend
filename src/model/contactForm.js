@@ -1,19 +1,22 @@
 import mongoose from "mongoose";
 
-const commentSchema=mongoose.Schema({
+const commentSchema=new mongoose.Schema({
     name:{
         type: String,
         minLength: 3,
     },
     email:{
         type:String,
-        required:true
+        required:true,
+        lowercase:true,
     },
     message:{
         type:String,
         required:true
     }
 })
+
+
 
 
 const Comment=mongoose.model("Comment",commentSchema)

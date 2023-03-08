@@ -2,6 +2,7 @@ import express from "express";
 import blogRoute from "./blogRoute.js"
 import subscriberRoutes from "./subscriberRoutes.js";
 import commentRoutes from "./commentRoute.js"
+import signupRoutes from "./signupRoutes.js"
 
 
 const router=express.Router()
@@ -9,6 +10,7 @@ const router=express.Router()
 router.use("/blogs",blogRoute);
 router.use("/followers",subscriberRoutes)
 router.use("/comments",commentRoutes);
+router.use("/signup",signupRoutes);
 
 
 export default router

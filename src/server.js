@@ -34,7 +34,6 @@ const connect=()=> mongoose.connect(process.env.MONGODB_URL  ,{
 const startServer = () =>app.listen(port)
 
 Promise.all([connect(),startServer()])
-
 .then(()=>{
     console.log(`Database connected and server listening at http://${host}:${port}`)
 })

@@ -104,13 +104,13 @@ static async deleteBlog(req,res){
 })
          }
          else{
-            // blogs.splice(index,1);
-            return req.status(200).json({
+            return res.status(200).json({
                 message:`Blog is with id ${_id} is deleted successfully`,
             })
          }
     } 
     catch (error) {
+        console.log(error);
         return res.status(500).json({
             message:`server error`
         })

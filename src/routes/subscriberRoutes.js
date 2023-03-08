@@ -5,6 +5,6 @@ import subscriberController from "../controllers/subscriberController.js"
 const router=express.Router();
 
 router.post("/",subscriberController.createSubscriber)
-// router.get("/",subscriberController.getSubscribers)
+router.get("/",subscriberController.getAllSubscribers)
 
 export default router

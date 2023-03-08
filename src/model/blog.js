@@ -19,11 +19,11 @@ minLength:3
         type: String,
         required: true,
         minLength: 10,
-        maxLength: 100,
     },
+   
 });
 
 //Exporting our model the collection is called blogs , mode is accessed by Blog
-const Blog=mongoose.model("Blog",blogSchema)
+const Blog=mongoose.model("Blog",blogSchema,'blogs')
 
 export default Blog
