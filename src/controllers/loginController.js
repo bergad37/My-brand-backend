@@ -1,5 +1,7 @@
 import User from "../model/signup.js";
 import bcrypt from "bcrypt"
+import jwt from  "jsonwebtoken"
+
 const loginController=async (req,res)=>{
 
     const {email,password}=req.body;
@@ -17,9 +19,12 @@ try {
         })
     }
     else{
+        const token= jwt.sign({userId: user._id},process.env.SECRETE_KEY)
+        console.log(token);
         res.status(200).json({
             message:"Welcome",
-            data:user
+            data:user,
+            validToken: token
         })
     }
    }
