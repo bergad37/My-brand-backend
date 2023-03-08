@@ -15,18 +15,13 @@ type:String,
 required: true,
 unique:true
     },
-    
+
     password:{
         type:String,
         required: true,
         minLength: 8
     }
 })
-
-// signupSchema.methods.comparePassword=async function (password){
-//     const match =await bcrypt.compare(password,this.password)
-//     return match;
-// }
 const User=mongoose.model("User",signupSchema,'users');
 
 export default User
