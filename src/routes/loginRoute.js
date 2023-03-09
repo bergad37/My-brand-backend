@@ -4,5 +4,5 @@ import authorize from "../middleware/restricDelete.js"
 
 
 const router=express.Router();
-router.post("/", loginController)
+router.post("/", loginController);
 export default router

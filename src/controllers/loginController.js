@@ -20,7 +20,6 @@ try {
     }
     else{
         const token= jwt.sign({userId: user._id},process.env.SECRETE_KEY)
-        console.log(token);
         res.status(200).json({
             message:"Welcome",
             data:user,

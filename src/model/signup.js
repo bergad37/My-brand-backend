@@ -20,6 +20,10 @@ unique:true
         type:String,
         required: true,
         minLength: 8
+    },
+    isAdmin:{
+type: Boolean,
+default:false
     }
 })
 const User=mongoose.model("User",signupSchema,'users');
