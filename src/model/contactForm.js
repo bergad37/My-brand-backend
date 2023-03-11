@@ -7,12 +7,10 @@ const commentSchema=new mongoose.Schema({
     },
     email:{
         type:String,
-        required:true,
         lowercase:true,
     },
     message:{
         type:String,
-        required:true
     }
 })
 

@@ -7,6 +7,7 @@ const allowTodelete= (req,res,next)=>{
     
     //Split the string from the Bearer word and get the second index
 const token=authH.split(" ")[1];
+console.log(token)
     if(!authH){
         return res.status(401).json({
             message:"No token provided"
@@ -21,18 +22,15 @@ if(!checkToken){
     })
 }
 else{
-const {userId}=checkToken
-const {mainUser,isAdmin}=req.body;
-if(userId!==mainUser){
-    return res.status(403).json({
-        message:"Access denied"
-    })
-}else if(userId===mainUser && isAdmin===false){
+const {role}=checkToken
+console.log(role)
+ if(role===false){
    return res.status(403).json({
     message:"Access denied!, You can only edit a blog"
    }) 
-}
+}else{
 next();
+}
 }
     }
    } catch (error) {

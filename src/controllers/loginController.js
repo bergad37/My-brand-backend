@@ -19,8 +19,9 @@ try {
         })
     }
     else{
-        const token= jwt.sign({userId: user._id},process.env.SECRETE_KEY)
+        const token= jwt.sign({userId: user._id,role:user.isAdmin},process.env.SECRETE_KEY)
         res.status(200).json({
+            ok:true,
             message:"Welcome",
             data:user,
             validToken: token

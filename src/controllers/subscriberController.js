@@ -6,25 +6,19 @@ class subscriberController{
     static async createSubscriber(req,res){
         try {
             const {email}=req.body;
-            const usedMail=await Subscriber.findOne({email});
-           
+            // const usedMail=await Subscriber.findOne({email});
+        //    console.log(usedMail)
            //When the email is included you have to meesaage the user that the email already exist
-           if(usedMail){
-           return res.status(404).json({
-                message:"user with this email alread exists"
-            })
-           }
-           else {
-            const subscriber=await Subscriber.create({email});
+             const subscriber=await Subscriber.create({email});
           return  res.status(201).json({
              message: "New follower recieved",
              data: subscriber
            })  
-        }
         } catch (error) {
-            if(error._message==='Subscriber validation failed'){
+            console.log(error)
+            if(error.code===11000){
                 res.status(500).json({
-                    message:"Email address is required"
+                    message:"Email already exists"
                 })
             }
             else{
