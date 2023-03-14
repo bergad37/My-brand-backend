@@ -15,7 +15,7 @@ console.log(token)
     }
     else{
        const checkToken=jwt.verify(token,process.env.SECRETE_KEY);
-        console.log(checkToken.userId);
+        console.log(checkToken.role);
 if(!checkToken){
    return res.status(401).status.json({
         message:"Token is invalid or has expired! Retry "
@@ -23,12 +23,14 @@ if(!checkToken){
 }
 else{
 const {role}=checkToken
+console.log(checkToken.role);
 console.log(role)
  if(role===false){
    return res.status(403).json({
     message:"Access denied!, You can only edit a blog"
    }) 
-}else{
+}
+else{
 next();
 }
 }

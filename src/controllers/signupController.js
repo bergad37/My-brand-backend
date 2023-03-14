@@ -8,7 +8,7 @@ try {
         const newUser=await User.create({firstname,lastname,email,password: encryptPassword,isAdmin});
         console.log(newUser);
     return res.status(201).json({
-        message:"New user created",
+        message:"Account successful created",
         data: newUser,
     })
 } catch (error) {

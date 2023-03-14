@@ -20,6 +20,9 @@ minLength:3
         required: true,
         minLength: 10,
     },
+    imageUrl:{
+        type:String
+    }
    
 });
 

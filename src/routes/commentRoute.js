@@ -7,5 +7,6 @@ const router=express.Router();
 
 
 router.post("/",commentController.comment);
+router.get("/",commentController.getComments)
 
 export default router

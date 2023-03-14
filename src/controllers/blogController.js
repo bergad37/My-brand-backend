@@ -49,8 +49,10 @@ class blogController{
 
 static async createBlogs(req,res){
 try {
-    const {title,Author,message}=req.body;
-    const newBlog=await Blog.create({title,Author,message});
+    const {title,Author,message,imageUrl}=req.body;
+    console.log(imageUrl);
+    const newBlog=await Blog.create({title,Author,message,imageUrl});
+   
    return  res.status(201).json({
         Message: "New blog has been created",
         data: newBlog
@@ -69,8 +71,8 @@ static async updateBlogs(req,res){
          const {id}=req.params;
         const _id=id;
          // const blogId=Number(id);
-        const {title,message}=req.body;
-        const blogUpdated=await Blog.findByIdAndUpdate(_id,{title,message},{new:true})
+        const {title,message,imageUrl}=req.body;
+        const blogUpdated=await Blog.findByIdAndUpdate(_id,{title,message,imageUrl},{new:true})
         if (!blogUpdated) {
            return res.status(500).json({
                 message:`Blog with id ${id} not found`
@@ -105,7 +107,8 @@ static async deleteBlog(req,res){
          }
          else{
             return res.status(200).json({
-                message:`Blog is with id ${_id} is deleted successfully`,
+                ok:true,
+                message:`Blog  with id ${_id} is deleted successfully`,
             })
          }
     } 

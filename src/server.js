@@ -14,7 +14,7 @@ const app=express();
 
 //Use cors and body-parser to ommit issues related to making requests or Cross-origin ...
 app.use(cors())
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb', type: 'application/json'}));
 
 app.use("/api/v1",allRoutes)
 
