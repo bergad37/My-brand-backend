@@ -2,10 +2,11 @@
   "name": "bakend-apis",
   "version": "1.0.0",
   "description": " CRUD operation",
-  "main": "index.js",
+  "main": "src/server.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
   },
   "author": "Gad Bertrand",
   "license": "ISC",
