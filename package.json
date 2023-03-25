@@ -20,6 +20,9 @@
     "mongoose": "^7.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
     "@types/express": "^4.17.17",
     "nodemon": "^2.0.20"
   }
