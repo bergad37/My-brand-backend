@@ -1,36 +1,35 @@
 import User from "../model/signup.js";
 import bcrypt from "bcrypt"
-import jwt from  "jsonwebtoken"
+import jwt from "jsonwebtoken"
 
-const loginController=async (req,res)=>{
+const loginController = async(req, res) => {
 
-    const {email,password}=req.body;
-try {
-   const user=await User.findOne({email})
-   if(!user){
-    res.status(400).json({
-        message:"Invalid credentials"
-    })
-   }else{
-    const checkPassword=await bcrypt.compare(password,user.password);
-    if(!checkPassword){
-        res.status(400).json({
-            message:"Invalid  credentials"
-        })
+    const { email, password } = req.body;
+    try {
+        const user = await User.findOne({ email })
+        if (!user) {
+            res.status(400).json({
+                message: "Invalid credentials"
+            })
+        } else {
+            const checkPassword = await bcrypt.compare(password, user.password);
+            if (!checkPassword) {
+                res.status(400).json({
+                    message: "Invalid  credentials"
+                })
+            } else {
+                const token = jwt.sign({ userId: user._id, role: user.isAdmin }, process.env.SECRETE_KEY)
+                res.status(200).json({
+                    ok: true,
+                    message: "You are logged in",
+                    data: user,
+                    validToken: token
+                })
+            }
+        }
+    } catch (error) {
+
     }
-    else{
-        const token= jwt.sign({userId: user._id,role:user.isAdmin},process.env.SECRETE_KEY)
-        res.status(200).json({
-            ok:true,
-            message:"Welcome",
-            data:user,
-            validToken: token
-        })
-    }
-   }
-} catch (error) {
-    
-}
 }
 
 export default loginController

@@ -9,7 +9,7 @@ class blogController {
 
             const article = await Blog.find();
             return res.status(200).json({
-                message: "The list of blogs",
+                message: "The blogs",
                 data: article
             })
         } catch (error) {
