@@ -21,9 +21,10 @@ app.use("/api/v1", allRoutes)
 //  define a port and a host
 const port = process.env.PORT;
 const host = process.env.HOST;
+const MONGO_BD_URL = process.env.DB
 
 //Database connection instance by default these useNew and topology is set to true 
-const connect = () => mongoose.connect('mongodb+srv://bertrand:135790Gad@myportfolio.nnvxvud.mongodb.net/?retryWrites=true&w=majority&appName=myportfolio', {
+const connect = () => mongoose.connect(MONGO_BD_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
